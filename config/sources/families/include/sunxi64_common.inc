@@ -9,7 +9,7 @@
 enable_extension "sunxi-tools"
 declare -g ARCH=arm64
 declare -g ATF_TARGET_MAP="PLAT=$ATF_PLAT DEBUG=1 bl31;;build/$ATF_PLAT/debug/bl31.bin"
-declare -g ATFBRANCH="tag:v2.10.14"
+declare -g ATFBRANCH="tag:lts-v2.12.1"
 declare -g BOOTDELAY=1
 declare -g BOOTPATCHDIR="${BOOTPATCHDIR:-"u-boot-h616"}"
 declare -g BOOTBRANCH="${BOOTBRANCH:-"tag:v2025.01"}"
