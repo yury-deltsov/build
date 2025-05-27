@@ -27,7 +27,6 @@ case $BRANCH in
 	legacy)
 		declare -g KERNEL_MAJOR_MINOR="6.1" # Major and minor versions of this kernel.
 		declare -g KERNELBRANCH="tag:v6.1.104"
-		KERNELPATCHDIR="archive/sunxi-${KERNEL_MAJOR_MINOR}"
 		;;
 
 	current)
@@ -36,16 +35,17 @@ case $BRANCH in
 		;;
 
 	edge)
-		declare -g KERNEL_MAJOR_MINOR="6.12" # Major and minor versions of this kernel.
-		declare -g KERNELBRANCH="tag:v6.12.11"
+		declare -g KERNEL_MAJOR_MINOR="6.14" # Major and minor versions of this kernel.
+		declare -g KERNELBRANCH="tag:v6.14.8""
 
 		;;
 	dev)
 		declare -g KERNEL_MAJOR_MINOR="6.14" # Major and minor versions of this kernel.
-		declare -g KERNELBRANCH="tag:v6.14-rc7"
+		declare -g KERNELBRANCH="tag:v6.14.8"
 		;;
 esac
 
+KERNELPATCHDIR="archive/sunxi-${KERNEL_MAJOR_MINOR}"
 
 family_tweaks() {
 	# execute specific tweaks function if present
