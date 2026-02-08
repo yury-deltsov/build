@@ -549,7 +549,11 @@ index 111111111111..222222222222 100644
  			break;
  
  	for (; phy_cfg->tmdsclock != 0; phy_cfg++)
+<<<<<<<< HEAD:patch/kernel/archive/rockchip-6.19/patches.armbian/general-rockchip-various-fixes.patch
 @@ -1034,6 +1041,10 @@ static int inno_hdmi_phy_clk_register(struct inno_hdmi_phy *inno)
+========
+@@ -1032,6 +1039,10 @@ static int inno_hdmi_phy_clk_register(struct inno_hdmi_phy *inno)
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/rockchip-6.18/patches.armbian/general-rockchip-various-fixes.patch
  
  static int inno_hdmi_phy_rk3228_init(struct inno_hdmi_phy *inno)
  {
@@ -560,7 +564,11 @@ index 111111111111..222222222222 100644
  	/*
  	 * Use phy internal register control
  	 * rxsense/poweron/pllpd/pdataen signal.
+<<<<<<<< HEAD:patch/kernel/archive/rockchip-6.19/patches.armbian/general-rockchip-various-fixes.patch
 @@ -1048,7 +1059,28 @@ static int inno_hdmi_phy_rk3228_init(struct inno_hdmi_phy *inno)
+========
+@@ -1046,7 +1057,28 @@ static int inno_hdmi_phy_rk3228_init(struct inno_hdmi_phy *inno)
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/rockchip-6.18/patches.armbian/general-rockchip-various-fixes.patch
  	inno_update_bits(inno, 0xaa, RK3228_POST_PLL_CTRL_MANUAL,
  			 RK3228_POST_PLL_CTRL_MANUAL);
  
@@ -589,7 +597,11 @@ index 111111111111..222222222222 100644
  
  	return 0;
  }
+<<<<<<<< HEAD:patch/kernel/archive/rockchip-6.19/patches.armbian/general-rockchip-various-fixes.patch
 @@ -1148,6 +1180,8 @@ static int inno_hdmi_phy_rk3328_init(struct inno_hdmi_phy *inno)
+========
+@@ -1146,6 +1178,8 @@ static int inno_hdmi_phy_rk3328_init(struct inno_hdmi_phy *inno)
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/rockchip-6.18/patches.armbian/general-rockchip-various-fixes.patch
  
  	/* try to read the chip-version */
  	inno->chip_version = 1;
@@ -602,7 +614,11 @@ diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/
 index 111111111111..222222222222 100644
 --- a/drivers/pmdomain/rockchip/pm-domains.c
 +++ b/drivers/pmdomain/rockchip/pm-domains.c
+<<<<<<<< HEAD:patch/kernel/archive/rockchip-6.19/patches.armbian/general-rockchip-various-fixes.patch
 @@ -98,6 +98,7 @@ struct rockchip_pm_domain {
+========
+@@ -97,6 +97,7 @@ struct rockchip_pm_domain {
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/rockchip-6.18/patches.armbian/general-rockchip-various-fixes.patch
  	struct regmap **qos_regmap;
  	u32 *qos_save_regs[MAX_QOS_REGS_NUM];
  	int num_clks;
@@ -610,7 +626,11 @@ index 111111111111..222222222222 100644
  	struct clk_bulk_data *clks;
  	struct device_node *node;
  	struct regulator *supply;
+<<<<<<<< HEAD:patch/kernel/archive/rockchip-6.19/patches.armbian/general-rockchip-various-fixes.patch
 @@ -709,6 +710,9 @@ static int rockchip_pd_power_on(struct generic_pm_domain *domain)
+========
+@@ -686,6 +687,9 @@ static int rockchip_pd_power_on(struct generic_pm_domain *domain)
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/rockchip-6.18/patches.armbian/general-rockchip-various-fixes.patch
  	struct rockchip_pm_domain *pd = to_rockchip_pd(domain);
  	int ret;
  
@@ -619,8 +639,13 @@ index 111111111111..222222222222 100644
 +
  	ret = rockchip_pd_regulator_enable(pd);
  	if (ret) {
+<<<<<<<< HEAD:patch/kernel/archive/rockchip-6.19/patches.armbian/general-rockchip-various-fixes.patch
  		dev_err_probe(pd->pmu->dev, ret,
 @@ -728,6 +732,9 @@ static int rockchip_pd_power_off(struct generic_pm_domain *domain)
+========
+ 		dev_err(pd->pmu->dev, "Failed to enable supply: %d\n", ret);
+@@ -704,6 +708,9 @@ static int rockchip_pd_power_off(struct generic_pm_domain *domain)
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/rockchip-6.18/patches.armbian/general-rockchip-various-fixes.patch
  	struct rockchip_pm_domain *pd = to_rockchip_pd(domain);
  	int ret;
  
@@ -630,7 +655,11 @@ index 111111111111..222222222222 100644
  	ret = rockchip_pd_power(pd, false);
  	if (ret)
  		return ret;
+<<<<<<<< HEAD:patch/kernel/archive/rockchip-6.19/patches.armbian/general-rockchip-various-fixes.patch
 @@ -816,6 +823,9 @@ static int rockchip_pm_add_one_domain(struct rockchip_pmu *pmu,
+========
+@@ -792,6 +799,9 @@ static int rockchip_pm_add_one_domain(struct rockchip_pmu *pmu,
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/rockchip-6.18/patches.armbian/general-rockchip-various-fixes.patch
  	pd->pmu = pmu;
  	pd->node = node;
  
@@ -640,7 +669,11 @@ index 111111111111..222222222222 100644
  	pd->num_clks = of_clk_get_parent_count(node);
  	if (pd->num_clks > 0) {
  		pd->clks = devm_kcalloc(pmu->dev, pd->num_clks,
+<<<<<<<< HEAD:patch/kernel/archive/rockchip-6.19/patches.armbian/general-rockchip-various-fixes.patch
 @@ -970,6 +980,7 @@ static int rockchip_pm_add_subdomain(struct rockchip_pmu *pmu,
+========
+@@ -937,6 +947,7 @@ static int rockchip_pm_add_subdomain(struct rockchip_pmu *pmu,
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/rockchip-6.18/patches.armbian/general-rockchip-various-fixes.patch
  				     struct device_node *parent)
  {
  	struct generic_pm_domain *child_domain, *parent_domain;
@@ -648,7 +681,11 @@ index 111111111111..222222222222 100644
  	int error;
  
  	for_each_child_of_node_scoped(parent, np) {
+<<<<<<<< HEAD:patch/kernel/archive/rockchip-6.19/patches.armbian/general-rockchip-various-fixes.patch
 @@ -1010,6 +1021,18 @@ static int rockchip_pm_add_subdomain(struct rockchip_pmu *pmu,
+========
+@@ -977,6 +988,18 @@ static int rockchip_pm_add_subdomain(struct rockchip_pmu *pmu,
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/rockchip-6.18/patches.armbian/general-rockchip-various-fixes.patch
  				parent_domain->name, child_domain->name);
  		}
  

@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/a711-6.18/0010-ARM-dts-sun8i-a83t-tbs-a711-Add-camera-sensors-HM506.patch
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+========
+From 4dbc4506213f44456ff65336f5f7681aa0bfa6ab Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/ARM-dts-sun8i-a83t-tbs-a711-Add-camera-sensors-HM5065-GC2145.patch
 From: =?UTF-8?q?Ond=C5=99ej=20Jirman?= <megi@xff.cz>
 Date: Tue, 23 Jun 2020 19:43:24 +0200
 Subject: ARM: dts: sun8i-a83t-tbs-a711: Add camera sensors (HM5065, GC2145)

@@ -1,15 +1,23 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-Add-debug-output-for-jack-detection.patch
 From 348696cd53ac362eb6bdd4e697852b006b324a80 Mon Sep 17 00:00:00 2001
+========
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0004-ASoC-sun8i-codec-Add-debug-output-for-jack-detection.patch
 From: Ondrej Jirman <megi@xff.cz>
 Date: Sat, 17 Feb 2024 01:13:39 +0100
 Subject: ASoC: sun8i-codec: Add debug output for jack detection
 
 Signed-off-by: Ondrej Jirman <megi@xff.cz>
 ---
- sound/soc/sunxi/sun8i-codec.c | 32 +++++++++++++++++++++++++++++++-
+ sound/soc/sunxi/sun8i-codec.c | 32 +++++++++-
  1 file changed, 31 insertions(+), 1 deletion(-)
 
 diff --git a/sound/soc/sunxi/sun8i-codec.c b/sound/soc/sunxi/sun8i-codec.c
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-Add-debug-output-for-jack-detection.patch
 index 133165ca60f0..f96fc3bb4108 100644
+========
+index 111111111111..222222222222 100644
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0004-ASoC-sun8i-codec-Add-debug-output-for-jack-detection.patch
 --- a/sound/soc/sunxi/sun8i-codec.c
 +++ b/sound/soc/sunxi/sun8i-codec.c
 @@ -9,6 +9,8 @@
@@ -29,7 +37,7 @@ index 133165ca60f0..f96fc3bb4108 100644
  	ktime_t				jack_hbias_ready;
  	struct mutex			jack_mutex;
  	int				last_hmic_irq;
-@@ -1344,6 +1347,8 @@ static void sun8i_codec_set_hmic_bias(struct sun8i_codec *scodec, bool enable)
+@@ -1341,6 +1344,8 @@ static void sun8i_codec_set_hmic_bias(struct sun8i_codec *scodec, bool enable)
  
  	snd_soc_dapm_sync(dapm);
  
@@ -38,7 +46,7 @@ index 133165ca60f0..f96fc3bb4108 100644
  	regmap_update_bits(scodec->regmap, SUN8I_HMIC_CTRL1,
  			   irq_mask, enable ? irq_mask : 0);
  }
-@@ -1352,6 +1357,7 @@ static void sun8i_codec_jack_work(struct work_struct *work)
+@@ -1349,6 +1354,7 @@ static void sun8i_codec_jack_work(struct work_struct *work)
  {
  	struct sun8i_codec *scodec = container_of(work, struct sun8i_codec,
  						  jack_work.work);
@@ -46,7 +54,7 @@ index 133165ca60f0..f96fc3bb4108 100644
  	unsigned int mdata;
  	int type;
  
-@@ -1362,6 +1368,7 @@ static void sun8i_codec_jack_work(struct work_struct *work)
+@@ -1359,6 +1365,7 @@ static void sun8i_codec_jack_work(struct work_struct *work)
  			return;
  
  		scodec->jack_last_sample = -1;
@@ -54,7 +62,7 @@ index 133165ca60f0..f96fc3bb4108 100644
  
  		if (scodec->jack_type & SND_JACK_MICROPHONE) {
  			/*
-@@ -1419,6 +1426,8 @@ static void sun8i_codec_jack_work(struct work_struct *work)
+@@ -1416,6 +1423,8 @@ static void sun8i_codec_jack_work(struct work_struct *work)
  
  		snd_soc_jack_report(scodec->jack, type, scodec->jack_type);
  		scodec->jack_status = SUN8I_JACK_STATUS_CONNECTED;
@@ -63,7 +71,7 @@ index 133165ca60f0..f96fc3bb4108 100644
  	} else if (scodec->jack_status == SUN8I_JACK_STATUS_CONNECTED) {
  		if (scodec->last_hmic_irq != SUN8I_HMIC_STS_JACK_OUT_IRQ_ST)
  			return;
-@@ -1428,14 +1437,18 @@ static void sun8i_codec_jack_work(struct work_struct *work)
+@@ -1425,14 +1434,18 @@ static void sun8i_codec_jack_work(struct work_struct *work)
  			sun8i_codec_set_hmic_bias(scodec, false);
  
  		snd_soc_jack_report(scodec->jack, 0, scodec->jack_type);
@@ -82,7 +90,7 @@ index 133165ca60f0..f96fc3bb4108 100644
  
  	guard(mutex)(&scodec->jack_mutex);
  
-@@ -1447,6 +1460,8 @@ static irqreturn_t sun8i_codec_jack_irq(int irq, void *dev_id)
+@@ -1444,6 +1457,8 @@ static irqreturn_t sun8i_codec_jack_irq(int irq, void *dev_id)
  	 * 100ms after each interrupt..
  	 */
  	if (status & BIT(SUN8I_HMIC_STS_JACK_OUT_IRQ_ST)) {
@@ -91,7 +99,7 @@ index 133165ca60f0..f96fc3bb4108 100644
  		/*
  		 * Out interrupt has priority over in interrupt so that if
  		 * we get both, we assume the disconnected state, which is
-@@ -1456,6 +1471,8 @@ static irqreturn_t sun8i_codec_jack_irq(int irq, void *dev_id)
+@@ -1453,6 +1468,8 @@ static irqreturn_t sun8i_codec_jack_irq(int irq, void *dev_id)
  		mod_delayed_work(system_power_efficient_wq, &scodec->jack_work,
  				 msecs_to_jiffies(100));
  	} else if (status & BIT(SUN8I_HMIC_STS_JACK_IN_IRQ_ST)) {
@@ -100,7 +108,7 @@ index 133165ca60f0..f96fc3bb4108 100644
  		scodec->last_hmic_irq = SUN8I_HMIC_STS_JACK_IN_IRQ_ST;
  		mod_delayed_work(system_power_efficient_wq, &scodec->jack_work,
  				 msecs_to_jiffies(100));
-@@ -1489,9 +1506,22 @@ static irqreturn_t sun8i_codec_jack_irq(int irq, void *dev_id)
+@@ -1486,9 +1503,22 @@ static irqreturn_t sun8i_codec_jack_irq(int irq, void *dev_id)
  		 * samples are identical.
  		 */
  		if (scodec->jack_last_sample >= 0 &&
@@ -125,5 +133,5 @@ index 133165ca60f0..f96fc3bb4108 100644
  		scodec->jack_last_sample = value;
  	}
 -- 
-2.35.3
+Armbian
 

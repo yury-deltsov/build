@@ -1,7 +1,30 @@
+<<<<<<<< HEAD:patch/kernel/archive/warpme-6.12/0640-arm64-dts-allwinner-h616.dtsi-add-audio-hdmi-vdec.patch
 diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi linux-6.9-rc5/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
 --- linux-6.9-rc5/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi	2024-04-26 17:54:16.746978737 +0200
 +++ linux-6.9-rc5/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi	2024-04-26 17:52:57.639288088 +0200
 @@ -10,6 +10,9 @@
+========
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+Date: Tue, 23 Sep 2025 17:08:11 +0200
+Subject: arm64: dts: allwinner: h616: Add display pipeline
+
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
+ arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 310 ++++++++++
+ 1 file changed, 310 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+index 111111111111..222222222222 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+@@ -7,8 +7,11 @@
+ #include <dt-bindings/clock/sun50i-h616-ccu.h>
+ #include <dt-bindings/clock/sun50i-h6-r-ccu.h>
+ #include <dt-bindings/clock/sun6i-rtc.h>
++#include <dt-bindings/clock/sun8i-de2.h>
++#include <dt-bindings/clock/sun8i-tcon-top.h>
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.drm/0041-arm64-dts-allwinner-h616-Add-display-pipeline.patch
  #include <dt-bindings/reset/sun50i-h616-ccu.h>
  #include <dt-bindings/reset/sun50i-h6-r-ccu.h>
  #include <dt-bindings/thermal/thermal.h>
@@ -10,21 +33,29 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +#include <dt-bindings/reset/sun8i-de2.h>
  
  / {
+<<<<<<<< HEAD:patch/kernel/archive/warpme-6.12/0640-arm64-dts-allwinner-h616.dtsi-add-audio-hdmi-vdec.patch
  	interrupt-parent = <&gic>;
 @@ -53,6 +56,12 @@
+========
+@@ -94,6 +97,12 @@ l2_cache: l2-cache {
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.drm/0041-arm64-dts-allwinner-h616-Add-display-pipeline.patch
  		};
  	};
  
 +	de: display-engine {
-+		compatible = "allwinner,sun50i-h6-display-engine";
-+		allwinner,pipelines = <&mixer0>;
++		compatible = "allwinner,sun50i-h616-display-engine";
++		allwinner,pipelines = <&mixer0>, <&mixer1>;
 +		status = "disabled";
 +	};
 +
  	reserved-memory {
  		#address-cells = <2>;
  		#size-cells = <2>;
+<<<<<<<< HEAD:patch/kernel/archive/warpme-6.12/0640-arm64-dts-allwinner-h616.dtsi-add-audio-hdmi-vdec.patch
 @@ -109,6 +118,51 @@
+========
+@@ -150,6 +159,82 @@ soc {
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.drm/0041-arm64-dts-allwinner-h616-Add-display-pipeline.patch
  		#size-cells = <1>;
  		ranges = <0x0 0x0 0x0 0x40000000>;
  
@@ -47,16 +78,26 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +				#reset-cells = <1>;
 +			};
 +
-+			mixer0: mixer@100000 {
++			planes: planes@100000 {
++				compatible = "allwinner,sun50i-h616-de33-planes";
++				reg = <0x100000 0x180000>;
++				allwinner,plane-mapping = <&display_clocks>;
++			};
++
++			mixer0: mixer@280000 {
 +				compatible = "allwinner,sun50i-h616-de33-mixer-0";
-+				reg = <0x100000 0x100000>,
-+				      <0x8100 0x40>,
-+				      <0x280000 0x20000>;
++				reg = <0x280000 0x20000>,
++				      <0x8100 0x40>;
++				reg-names = "display", "top";
 +				clocks = <&display_clocks CLK_BUS_MIXER0>,
 +					 <&display_clocks CLK_MIXER0>;
 +				clock-names = "bus", "mod";
 +				resets = <&display_clocks RST_MIXER0>;
+<<<<<<<< HEAD:patch/kernel/archive/warpme-6.12/0640-arm64-dts-allwinner-h616.dtsi-add-audio-hdmi-vdec.patch
 +				iommus = <&iommu 0>;
+========
++				allwinner,planes = <&planes>;
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.drm/0041-arm64-dts-allwinner-h616-Add-display-pipeline.patch
 +
 +				ports {
 +					#address-cells = <1>;
@@ -71,8 +112,34 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +					};
 +				};
 +			};
++
++			mixer1: mixer@2a0000 {
++				compatible = "allwinner,sun50i-h616-de33-mixer-0";
++				reg = <0x2a0000 0x20000>,
++				      <0x8140 0x40>;
++				reg-names = "display", "top";
++				clocks = <&display_clocks CLK_BUS_MIXER1>,
++					 <&display_clocks CLK_MIXER1>;
++				clock-names = "bus", "mod";
++				resets = <&display_clocks RST_MIXER1>;
++				allwinner,planes = <&planes>;
++
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					mixer1_out: port@1 {
++						reg = <1>;
++
++						mixer1_out_tcon_top_mixer1: endpoint {
++							remote-endpoint = <&tcon_top_mixer1_in_mixer1>;
++						};
++					};
++				};
++			};
 +		};
 +
+<<<<<<<< HEAD:patch/kernel/archive/warpme-6.12/0640-arm64-dts-allwinner-h616.dtsi-add-audio-hdmi-vdec.patch
  		syscon: syscon@3000000 {
  			compatible = "allwinner,sun50i-h616-system-control";
  			reg = <0x03000000 0x1000>;
@@ -96,6 +163,12 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
  			sram_c: sram@28000 {
  				compatible = "mmio-sram";
  				reg = <0x00028000 0x30000>;
+========
+ 		gpu: gpu@1800000 {
+ 			compatible = "allwinner,sun50i-h616-mali",
+ 				     "arm,mali-bifrost";
+@@ -188,6 +273,12 @@ sram_c: sram@28000 {
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.drm/0041-arm64-dts-allwinner-h616-Add-display-pipeline.patch
  				#address-cells = <1>;
  				#size-cells = <1>;
  				ranges = <0 0x00028000 0x30000>;
@@ -119,6 +192,13 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +					reg = <0x000000 0x200000>;
 +				};
  			};
+<<<<<<<< HEAD:patch/kernel/archive/warpme-6.12/0640-arm64-dts-allwinner-h616.dtsi-add-audio-hdmi-vdec.patch
+========
+ 		};
+ 
+@@ -868,6 +959,225 @@ ohci3: usb@5311400 {
+ 			status = "disabled";
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.drm/0041-arm64-dts-allwinner-h616-Add-display-pipeline.patch
  		};
  
 @@ -361,6 +458,230 @@
@@ -209,7 +289,6 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +		};
 +
 +		hdmi: hdmi@6000000 {
-+			#sound-dai-cells = <0>;
 +			compatible = "allwinner,sun50i-h616-dw-hdmi",
 +				     "allwinner,sun50i-h6-dw-hdmi";
 +			reg = <0x06000000 0x10000>;
@@ -255,7 +334,8 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +		};
 +
 +		tcon_top: tcon-top@6510000 {
-+			compatible = "allwinner,sun50i-h6-tcon-top";
++			compatible = "allwinner,sun50i-h616-tcon-top",
++				     "allwinner,sun50i-h6-tcon-top";
 +			reg = <0x06510000 0x1000>;
 +			clocks = <&ccu CLK_BUS_TCON_TOP>,
 +				 <&ccu CLK_TCON_TV0>;
@@ -285,9 +365,41 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +					#size-cells = <0>;
 +					reg = <1>;
 +
-+					tcon_top_mixer0_out_tcon_tv: endpoint@2 {
++					tcon_top_mixer0_out_tcon_lcd0: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&tcon_lcd0_in_tcon_top_mixer0>;
++					};
++
++					tcon_top_mixer0_out_tcon_tv0: endpoint@2 {
 +						reg = <2>;
-+						remote-endpoint = <&tcon_tv_in_tcon_top_mixer0>;
++						remote-endpoint = <&tcon_tv0_in_tcon_top_mixer0>;
++					};
++				};
++
++				tcon_top_mixer1_in: port@2 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <2>;
++
++					tcon_top_mixer1_in_mixer1: endpoint@1 {
++						reg = <1>;
++						remote-endpoint = <&mixer1_out_tcon_top_mixer1>;
++					};
++				};
++
++				tcon_top_mixer1_out: port@3 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <3>;
++
++					tcon_top_mixer1_out_tcon_lcd0: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&tcon_lcd0_in_tcon_top_mixer1>;
++					};
++
++					tcon_top_mixer1_out_tcon_tv0: endpoint@2 {
++						reg = <2>;
++						remote-endpoint = <&tcon_tv0_in_tcon_top_mixer1>;
 +					};
 +				};
 +
@@ -296,9 +408,9 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +					#size-cells = <0>;
 +					reg = <4>;
 +
-+					tcon_top_hdmi_in_tcon_tv: endpoint@0 {
++					tcon_top_hdmi_in_tcon_tv0: endpoint@0 {
 +						reg = <0>;
-+						remote-endpoint = <&tcon_tv_out_tcon_top>;
++						remote-endpoint = <&tcon_tv0_out_tcon_top>;
 +					};
 +				};
 +
@@ -312,9 +424,47 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +			};
 +		};
 +
-+		tcon_tv: lcd-controller@6515000 {
-+			compatible = "allwinner,sun50i-h6-tcon-tv",
-+				     "allwinner,sun8i-r40-tcon-tv";
++		tcon_lcd0: lcd-controller@6511000 {
++			compatible = "allwinner,sun50i-h616-tcon-lcd",
++				     "allwinner,sun8i-r40-tcon-lcd";
++			reg = <0x06511000 0x1000>;
++			interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_TCON_LCD0>, <&ccu CLK_TCON_LCD0>;
++			clock-names = "ahb", "tcon-ch0";
++			clock-output-names = "tcon-data-clock";
++			#clock-cells = <0>;
++			resets = <&ccu RST_BUS_TCON_LCD0>, <&ccu RST_BUS_LVDS>;
++			reset-names = "lcd", "lvds";
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				tcon_lcd0_in: port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0>;
++
++					tcon_lcd0_in_tcon_top_mixer0: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&tcon_top_mixer0_out_tcon_lcd0>;
++					};
++
++					tcon_lcd0_in_tcon_top_mixer1: endpoint@1 {
++						reg = <1>;
++						remote-endpoint = <&tcon_top_mixer1_out_tcon_lcd0>;
++					};
++				};
++
++				tcon_lcd0_out: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
++		tcon_tv0: lcd-controller@6515000 {
++			compatible = "allwinner,sun50i-h616-tcon-tv";
 +			reg = <0x06515000 0x1000>;
 +			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>;
 +			clocks = <&ccu CLK_BUS_TCON_TV0>,
@@ -328,22 +478,30 @@ diff --speed-large-files --no-dereference --minimal -Naur linux-6.9-rc5/arch/arm
 +				#address-cells = <1>;
 +				#size-cells = <0>;
 +
-+				tcon_tv_in: port@0 {
++				tcon_tv0_in: port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
 +					reg = <0>;
 +
-+					tcon_tv_in_tcon_top_mixer0: endpoint {
-+						remote-endpoint = <&tcon_top_mixer0_out_tcon_tv>;
++					tcon_tv0_in_tcon_top_mixer0: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&tcon_top_mixer0_out_tcon_tv0>;
++					};
++
++					tcon_tv0_in_tcon_top_mixer1: endpoint@1 {
++						reg = <1>;
++						remote-endpoint = <&tcon_top_mixer1_out_tcon_tv0>;
 +					};
 +				};
 +
-+				tcon_tv_out: port@1 {
++				tcon_tv0_out: port@1 {
 +					#address-cells = <1>;
 +					#size-cells = <0>;
 +					reg = <1>;
 +
-+					tcon_tv_out_tcon_top: endpoint@1 {
++					tcon_tv0_out_tcon_top: endpoint@1 {
 +						reg = <1>;
-+						remote-endpoint = <&tcon_top_hdmi_in_tcon_tv>;
++						remote-endpoint = <&tcon_top_hdmi_in_tcon_tv0>;
 +					};
 +				};
 +			};

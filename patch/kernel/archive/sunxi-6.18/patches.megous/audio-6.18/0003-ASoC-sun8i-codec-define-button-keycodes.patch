@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0003-ASoC-sun8i-codec-define-button-keycodes.patch
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+========
+From 996eefe4372447c4622414c225833ad29b80a6ff Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-define-button-keycodes.patch
 From: Ondrej Jirman <megi@xff.cz>
 Date: Fri, 23 Feb 2024 01:58:40 +0100
 Subject: ASoC: sun8i-codec: define button keycodes
@@ -9,7 +13,11 @@ This is likely not upstreamable, but simple. :)
  1 file changed, 7 insertions(+)
 
 diff --git a/sound/soc/sunxi/sun8i-codec.c b/sound/soc/sunxi/sun8i-codec.c
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0003-ASoC-sun8i-codec-define-button-keycodes.patch
 index 111111111111..222222222222 100644
+========
+index 4f44f35819e2..133165ca60f0 100644
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-define-button-keycodes.patch
 --- a/sound/soc/sunxi/sun8i-codec.c
 +++ b/sound/soc/sunxi/sun8i-codec.c
 @@ -1538,6 +1538,13 @@ static int sun8i_codec_enable_jack_detect(struct snd_soc_component *component,

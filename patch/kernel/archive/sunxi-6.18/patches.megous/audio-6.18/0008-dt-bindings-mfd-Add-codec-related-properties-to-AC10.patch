@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0008-dt-bindings-mfd-Add-codec-related-properties-to-AC10.patch
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+========
+From 6eb32c97bee48006c6eaf138ed1a74953b32bcc3 Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/dt-bindings-mfd-Add-codec-related-properties-to-AC100-PMIC.patch
 From: Ondrej Jirman <megi@xff.cz>
 Date: Sat, 17 Feb 2024 02:01:49 +0100
 Subject: dt: bindings: mfd: Add codec related properties to AC100 PMIC

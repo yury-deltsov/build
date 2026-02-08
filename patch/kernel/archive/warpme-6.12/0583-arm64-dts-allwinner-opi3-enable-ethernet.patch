@@ -1,5 +1,10 @@
+<<<<<<<< HEAD:patch/kernel/archive/warpme-6.12/0583-arm64-dts-allwinner-opi3-enable-ethernet.patch
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ondrej Jirman <megous@megous.com>
+========
+From d9a843250fcc438da3dd001affeb7cf4633f1353 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ond=C5=99ej=20Jirman?= <megi@xff.cz>
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/arm64-dts-allwinner-orange-pi-3-Enable-ethernet.patch
 Date: Tue, 20 Aug 2019 14:54:48 +0200
 Subject: [PATCH] arm64: dts: allwinner: orange-pi-3: Enable ethernet
 
@@ -28,6 +33,11 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  .../dts/allwinner/sun50i-h6-orangepi-3.dts    | 40 +++++++++++++++++++
  1 file changed, 40 insertions(+)
 
+<<<<<<<< HEAD:patch/kernel/archive/warpme-6.12/0583-arm64-dts-allwinner-opi3-enable-ethernet.patch
+========
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts b/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts
+index f005072c68a1..da322cb97935 100644
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/arm64-dts-allwinner-orange-pi-3-Enable-ethernet.patch
 --- a/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts
 +++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts
 @@ -15,6 +15,7 @@
@@ -90,7 +100,11 @@ Signed-off-by: Ondrej Jirman <megous@megous.com>
  &mmc0 {
  	vmmc-supply = <&reg_cldo1>;
  	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>; /* PF6 */
+<<<<<<<< HEAD:patch/kernel/archive/warpme-6.12/0583-arm64-dts-allwinner-opi3-enable-ethernet.patch
 @@ -211,6 +250,7 @@
+========
+@@ -208,6 +247,7 @@ reg_aldo2: aldo2 {
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/arm64-dts-allwinner-orange-pi-3-Enable-ethernet.patch
  				regulator-min-microvolt = <3300000>;
  				regulator-max-microvolt = <3300000>;
  				regulator-name = "vcc33-audio-tv-ephy-mac";

@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-Set-jack_type-from-DT-in-probe.patch
 From 2f91c9642f26aa4da3c1bfb967e2dee49f772f21 Mon Sep 17 00:00:00 2001
+========
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0005-ASoC-sun8i-codec-Set-jack_type-from-DT-in-probe.patch
 From: Ondrej Jirman <megi@xff.cz>
 Date: Tue, 26 Mar 2024 17:38:38 +0100
 Subject: ASoC: sun8i-codec: Set jack_type from DT in probe
@@ -7,14 +11,18 @@ Jack type needs to be set in probe so that it can be used later on.
 
 Signed-off-by: Ondrej Jirman <megi@xff.cz>
 ---
- sound/soc/sunxi/sun8i-codec.c | 14 +++++++-------
+ sound/soc/sunxi/sun8i-codec.c | 14 +++++-----
  1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/sound/soc/sunxi/sun8i-codec.c b/sound/soc/sunxi/sun8i-codec.c
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-Set-jack_type-from-DT-in-probe.patch
 index f96fc3bb4108..9d28c675fb69 100644
+========
+index 111111111111..222222222222 100644
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0005-ASoC-sun8i-codec-Set-jack_type-from-DT-in-probe.patch
 --- a/sound/soc/sunxi/sun8i-codec.c
 +++ b/sound/soc/sunxi/sun8i-codec.c
-@@ -1602,14 +1602,9 @@ static void sun8i_codec_disable_jack_detect(struct snd_soc_component *component)
+@@ -1599,14 +1599,9 @@ static void sun8i_codec_disable_jack_detect(struct snd_soc_component *component)
  
  static int sun8i_codec_component_get_jack_type(struct snd_soc_component *component)
  {
@@ -31,7 +39,7 @@ index f96fc3bb4108..9d28c675fb69 100644
  }
  
  static int sun8i_codec_component_set_jack(struct snd_soc_component *component,
-@@ -1671,6 +1666,11 @@ static int sun8i_codec_probe(struct platform_device *pdev)
+@@ -1668,6 +1663,11 @@ static int sun8i_codec_probe(struct platform_device *pdev)
  
  	platform_set_drvdata(pdev, scodec);
  
@@ -44,5 +52,5 @@ index f96fc3bb4108..9d28c675fb69 100644
  		scodec->clk_bus = devm_clk_get(&pdev->dev, "bus");
  		if (IS_ERR(scodec->clk_bus)) {
 -- 
-2.35.3
+Armbian
 

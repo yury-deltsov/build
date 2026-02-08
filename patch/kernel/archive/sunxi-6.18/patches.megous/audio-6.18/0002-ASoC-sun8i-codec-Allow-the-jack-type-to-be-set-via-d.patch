@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0002-ASoC-sun8i-codec-Allow-the-jack-type-to-be-set-via-d.patch
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+========
+From 710dfc2a31b54621aab6c56508b2c3a8a89d1871 Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-Allow-the-jack-type-to-be-set-via-device-tree.patch
 From: Ondrej Jirman <megi@xff.cz>
 Date: Sat, 2 Mar 2024 14:55:31 +0100
 Subject: ASoC: sun8i-codec: Allow the jack type to be set via device tree
@@ -12,7 +16,11 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  1 file changed, 13 insertions(+)
 
 diff --git a/sound/soc/sunxi/sun8i-codec.c b/sound/soc/sunxi/sun8i-codec.c
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0002-ASoC-sun8i-codec-Allow-the-jack-type-to-be-set-via-d.patch
 index 111111111111..222222222222 100644
+========
+index 8b9eb1a202f7..4f44f35819e2 100644
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-Allow-the-jack-type-to-be-set-via-device-tree.patch
 --- a/sound/soc/sunxi/sun8i-codec.c
 +++ b/sound/soc/sunxi/sun8i-codec.c
 @@ -1560,6 +1560,18 @@ static void sun8i_codec_disable_jack_detect(struct snd_soc_component *component)

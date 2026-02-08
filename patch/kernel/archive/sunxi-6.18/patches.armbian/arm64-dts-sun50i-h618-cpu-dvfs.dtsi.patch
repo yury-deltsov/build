@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.armbian/arm64-dts-sun50i-h618-cpu-dvfs.dtsi.patch
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+========
+From 4549dc5d132a65e48e93a5ed8f2d02cf5e0ea447 Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.armbian/arm64-dts-add-sun50i-h618-cpu-dvfs.dtsi.patch
 From: AGM1968 <AGM1968@users.noreply.github.com>
 Date: Tue, 23 May 2023 16:43:00 +0000
 Subject: arm64: dts: add sun50i-h618-cpu-dvfs.dtsi

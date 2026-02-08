@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/pb-6.18/0014-input-cyttsp4-Make-the-driver-not-hog-the-system-s-w.patch
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+========
+From 6073f0dc79fd6d96a8d947ef7d99cfb6e6224bd1 Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/input-cyttsp4-Make-the-driver-not-hog-the-system-s-workqueue.patch
 From: =?UTF-8?q?Ond=C5=99ej=20Jirman?= <megi@xff.cz>
 Date: Mon, 14 Oct 2019 18:00:32 +0200
 Subject: input: cyttsp4: Make the driver not hog the system's workqueue
@@ -13,7 +17,11 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  2 files changed, 16 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/input/touchscreen/cyttsp4_core.c b/drivers/input/touchscreen/cyttsp4_core.c
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/pb-6.18/0014-input-cyttsp4-Make-the-driver-not-hog-the-system-s-w.patch
 index 111111111111..222222222222 100644
+========
+index d9243c9db69a..c353ac73c106 100644
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/input-cyttsp4-Make-the-driver-not-hog-the-system-s-workqueue.patch
 --- a/drivers/input/touchscreen/cyttsp4_core.c
 +++ b/drivers/input/touchscreen/cyttsp4_core.c
 @@ -721,7 +721,7 @@ static void cyttsp4_queue_startup_(struct cyttsp4 *cd)

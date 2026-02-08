@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.15/patches.megous/ARM-dts-sun8i-h3-orange-pi-one-Enable-all-gpio-header-UARTs.patch
 From 2b22f37887782b93303499c51636d4c577f040b9 Mon Sep 17 00:00:00 2001
+========
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.18/patches.megous/private-6.18/0003-ARM-dts-sun8i-h3-orange-pi-one-Enable-all-gpio-heade.patch
 From: Ondrej Jirman <megi@xff.cz>
 Date: Sat, 2 Apr 2022 02:24:26 +0200
 Subject: ARM: dts: sun8i-h3-orange-pi-one: Enable all gpio header UARTs
@@ -8,7 +12,7 @@ Subject: ARM: dts: sun8i-h3-orange-pi-one: Enable all gpio header UARTs
  1 file changed, 6 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm/boot/dts/allwinner/sun8i-h3-orangepi-one.dts b/arch/arm/boot/dts/allwinner/sun8i-h3-orangepi-one.dts
-index f5476cdab8a4..64c489e356ce 100644
+index 111111111111..222222222222 100644
 --- a/arch/arm/boot/dts/allwinner/sun8i-h3-orangepi-one.dts
 +++ b/arch/arm/boot/dts/allwinner/sun8i-h3-orangepi-one.dts
 @@ -54,6 +54,9 @@ / {
@@ -45,5 +49,5 @@ index f5476cdab8a4..64c489e356ce 100644
  
  &usb_otg {
 -- 
-2.35.3
+Armbian
 

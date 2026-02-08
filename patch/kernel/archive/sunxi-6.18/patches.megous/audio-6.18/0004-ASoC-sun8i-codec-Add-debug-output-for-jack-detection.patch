@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0004-ASoC-sun8i-codec-Add-debug-output-for-jack-detection.patch
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+========
+From 348696cd53ac362eb6bdd4e697852b006b324a80 Mon Sep 17 00:00:00 2001
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-Add-debug-output-for-jack-detection.patch
 From: Ondrej Jirman <megi@xff.cz>
 Date: Sat, 17 Feb 2024 01:13:39 +0100
 Subject: ASoC: sun8i-codec: Add debug output for jack detection
@@ -9,7 +13,11 @@ Signed-off-by: Ondrej Jirman <megi@xff.cz>
  1 file changed, 31 insertions(+), 1 deletion(-)
 
 diff --git a/sound/soc/sunxi/sun8i-codec.c b/sound/soc/sunxi/sun8i-codec.c
+<<<<<<<< HEAD:patch/kernel/archive/sunxi-6.18/patches.megous/audio-6.18/0004-ASoC-sun8i-codec-Add-debug-output-for-jack-detection.patch
 index 111111111111..222222222222 100644
+========
+index 133165ca60f0..f96fc3bb4108 100644
+>>>>>>>> 09b789500459353b662b9482ae7912879c942f1a:patch/kernel/archive/sunxi-6.15/patches.megous/ASoC-sun8i-codec-Add-debug-output-for-jack-detection.patch
 --- a/sound/soc/sunxi/sun8i-codec.c
 +++ b/sound/soc/sunxi/sun8i-codec.c
 @@ -9,6 +9,8 @@
